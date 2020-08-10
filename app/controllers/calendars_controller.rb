@@ -28,6 +28,7 @@ class CalendarsController < ApplicationController
     @week_days = []
 
     @plans = Plan.where(date: @todays_date..@todays_date + 7)
+# アクティブレコードwhereは、引数に指定した条件と合っているレコードを取得する。今日の日付から７日間後までのレコードを取得
 
     7.times do |x|
       plans = []
@@ -37,6 +38,9 @@ class CalendarsController < ApplicationController
       days = { month: (@todays_date + x).month, date: (@todays_date+x).day, plans: plans}
       @week_days.push(days)
     end
-
   end
 end
+# ハッシュかハッシュにすればええんか？week_days君を
+# days = { month: (@todays_date + x).month, date: (@todays_date+x).day, plans: plans}
+# @week_days.push(days)
+# month: (@todays_date + x)、monthに7回繰り返す？　
